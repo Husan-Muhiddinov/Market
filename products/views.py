@@ -24,18 +24,32 @@ def new_product(request):
             messages.success(request, "Succesfully Created")
             return redirect('main:index')
         return render(request, 'product_new.html',{'form':form})
-    
 
-def product_detail(request,product_id):
-    product=get_object_or_404(Product, id=product_id)
+
+# def product_detail(request,product_id):
+#     product=get_object_or_404(Product, id=product_id)
+#     print(request.session)
+#     if "recently_viewed" in request.session:
+#         r_viewed=request.session["recently_viewed"]
+#         if not product.id in r_viewed:
+#             r_viewed.append(product.id)
+#             request.session.modified=True
+#       else:
+#             request.session["recently_viewed"]=[product.id,]
+#     return render(request, 'product_detail.html', {'product':product})
+
+
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
     if "recently_viewed" in request.session:
-        r_viewed=request.session["recently_viewed"]
+        r_viewed = request.session["recently_viewed"]
         if not product.id in r_viewed:
             r_viewed.append(product.id)
-            request.session.modified=True
-        else:
-            request.session["recently_viewed"]=[product.id,]
+            request.session.modified = True
+    else:
+        request.session["recently_viewed"] = [product.id,]
     return render(request, 'product_detail.html', {'product':product})
+
         
 
 

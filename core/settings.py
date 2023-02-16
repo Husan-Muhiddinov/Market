@@ -146,4 +146,4 @@ AUTH_USER_MODEL='users.CustomUser'
 
 
 LOGIN_REDIRECT_URL='main:index'
-LOGOUT_REDIRECT_URL='main:index'
+LOGOUT_REDIRECT_URL='login'

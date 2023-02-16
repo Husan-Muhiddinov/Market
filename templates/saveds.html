@@ -22,7 +22,7 @@
                     <span class="center card-text"><small>$ {{i.product.price}}</small></span>
                     <div class="buttons d-flex flex-wrap justify-content-between ">
                         <i class="bi bi-bookmark-fill"></i>
-                        <!-- <a href="{% url 'users:addremovesaved' i.id %}">📥</a> -->
+                        <a href="{% url 'users:addremovesaved' i.product.id %}">📥</a>
                         <a href="{% url 'products:detail' i.product.id %}" class="btn btn-outline-primary" >Details</a>
                     </div>
                 </div>

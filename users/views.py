@@ -90,11 +90,14 @@ class SavedView(LoginRequiredMixin,View):
 
 class RecentlyViewedView(View):
     def get(self,request):
+        products=[]
         if not "recently_viewed" in request.session:
-            products=[]
+            pass
         else:
             r_viewed=request.session["recently_viewed"]
-            products=Product.objects.filter(id_in=r_viewed)
+            for i in Product.objects.all():
+                if i.id in r_viewed:
+                    products.append(i)
             q=request.GET.get('q','')
             if q:
               products=products.filter(title__icontains=q)
