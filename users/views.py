@@ -100,5 +100,5 @@ class RecentlyViewedView(View):
                     products.append(i)
             q=request.GET.get('q','')
             if q:
-              products=products.filter(title__icontains=q)
+              products=Product.objects.filter(title__icontains=q)
         return render(request, "recently_viewed.html",{"products":products})
