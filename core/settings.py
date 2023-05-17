@@ -1,8 +1,3 @@
-# 17_daqiqa rsm
-
-
-
-
 """
 Django settings for core project.
 

@@ -91,7 +91,7 @@ def product_delete(request,product_id):
     
 
 
-@login_required(login_url='login')     # Tizizmga kirganligini tekshirish
+@login_required(login_url='login')
 def new_comment(request,product_id):
     product=get_object_or_404(Product,id=product_id)
     if request.method=="POST":
@@ -108,7 +108,7 @@ def new_comment(request,product_id):
 
 
 
-@login_required(login_url='login')     # Tizizmga kirganligini tekshirish
+@login_required(login_url='login')
 def delete_comment(request,product_id,comment_id):
     comment=get_object_or_404(Comment,id=comment_id)
     if request.user==comment.author:
